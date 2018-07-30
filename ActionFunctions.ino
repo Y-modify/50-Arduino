@@ -23,120 +23,126 @@ Adafruit_PWMServoDriver pwm2 = Adafruit_PWMServoDriver(0x41); // 2
 
 /*****Servo Ports Definition*****/
 
-#define servoA 0
+const uint8_t ports[] = {
+  0, // A
+  1, // B
+  2, // C
+  3, // D
 
-#define servoB 1
-#define servoC 2
-#define servoD 3
+  30, // E // 14
+  29, // F // 13
+  28, // G // 12
 
-#define servoE 30 // 14
-#define servoF 29 // 13
-#define servoG 28 // 12
+  8, // H
+  9, // I
 
-#define servoH 8
-#define servoI 9
+  16, // K // 0
+  17, // L // 1
+  18, // M // 2
+  19, // N // 3
+  20, // O // 4
 
-#define servoK 16 // 0
-#define servoL 17 // 1
-#define servoM 18 // 2
-#define servoN 19 // 3
-#define servoO 20 // 4
-
-#define servoQ 15
-#define servoR 14
-#define servoS 13
-#define servoT 12
-#define servoU 11
+  15, // Q
+  14, // R
+  13, // S
+  12, // T
+  11  // U
+};
 
 #define LEDr 3
 #define LEDg 2
 #define LEDb 1
 
 /**standDefinition**/
-#define stA 75 //+100    -80
+const uint8_t stand_positions[] = {
+  75, // A //+100    -80
 
 //左腕
-#define stB 90 //+110   -70
-#define stC 92 //+100   -80
-#define stD 87 //+30    -140
+  90, // B //+110   -70
+  92, // C //+100   -80
+  87, // D //+30    -140
 
 //右腕
-#define stE 90 //+90    -90
-#define stF 85 //+110   -70
-#define stG 93 //+160   -20
+  90, // E //+90    -90
+  85, // F //+110   -70
+  93, // G //+160   -20
 
 //腰
-#define stH 90  //+100   -80
-#define stI 90 //+70    -110
+  90, // H  //+100   -80
+  90, // I //+70    -110
 
 //右足
-#define stK 70 //+105   -75
-#define stL 125  //+110   -70
-#define stM 85//+80    -100
-#define stN 85 //+80    -100
-#define stO 85 //+150   -30
+  70, // K //+105   -75
+  125, // L  //+110   -70
+  85, // M//+80    -100
+  85, // N //+80    -100
+  85, // O //+150   -30
 
 //左足
-#define stQ 70  //+95    -85
-#define stR 70 //+65    -105
-#define stS 80  //+100   -80
-#define stT 83 //+120   -60*****************
-#define stU 90 //+45    -135
-
+  70, // Q  //+95    -85
+  70, // R //+65    -105
+  80, // S  //+100   -80
+  83, // T //+120   -60*****************
+  90  // U //+45    -135
+};
 
 
 /****calibration****/
-float nstA = 1; //+100    -80
+float calibrations[] = {
+  1, // A; //+100    -80
 
 //左腕
-float nstB = 1; //+110   -70
-float nstC = 1; //+100   -80
-float nstD = 1; //+30    -140
+  1, // B; //+110   -70
+  1, // C; //+100   -80
+  1, // D; //+30    -140
 
 //右腕
-float nstE = 1; //+90    -90
-float nstF = 1; //+110   -70
-float nstG = 1; //+160   -20
+  1, // E; //+90    -90
+  1, // F; //+110   -70
+  1, // G; //+160   -20
 
 //腰
-float nstH = 1; //+100   -80
-float nstI = 1; //+70    -110
+  1, // H; //+100   -80
+  1, // I; //+70    -110
 
 //右足
-float nstK = 1; //+105   -75
-float nstL = 1; //+110   -70
-float nstM = 0.9; //+80    -100
-float nstN = 1; //+80    -100
-float nstO = 1; //+150   -30
+  1, // K; //+105   -75
+  1, // L; //+110   -70
+  0, // M.9; //+80    -100
+  1, // N; //+80    -100
+  1, // O; //+150   -30
 
 //左足
-float nstQ = 1; //+95    -85
-float nstR = 1; //+65    -105
-float nstS = 1; //+100   -80
-float nstT = 1; //+120   -60
-float nstU = 1; //+45    -135
+  1, // Q; //+95    -85
+  1, // R; //+65    -105
+  1, // S; //+100   -80
+  1, // T; //+120   -60
+  1  // U; //+45    -135
+};
 
 
-
-int fA = 0;
-int fB = 0;
-int fC = 0;
-int fD = 0;
-int fE = 0;
-int fF = 0;
-int fG = 0;
-int fH = 0;
-int fI = 0;
-int fK = 0;
-int fL = 0;
-int fM = 0;
-int fN = 0;
-int fO = 0;
-int fQ = 0;
-int fR = 0;
-int fS = 0;
-int fT = 0;
-int fU = 0;
+/* current degrees */
+uint8_t current_degrees[] = {
+  0, // A
+  0, // B
+  0, // C
+  0, // D
+  0, // E
+  0, // F
+  0, // G
+  0, // H
+  0, // I
+  0, // K
+  0, // L
+  0, // M
+  0, // N
+  0, // O
+  0, // Q
+  0, // R
+  0, // S
+  0, // T
+  0 // U
+};
 
 float formerDeg = 0;
 int stX = 0;
