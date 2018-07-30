@@ -5,17 +5,30 @@
   Copyright © 2017 Y-modify All Rights Reserved.
 *************************************/
 
+uint8_t chToIdx(char servoCh) {
+  return servoCh - 'A';
+}
+
 /*****Core Functions*****/
+uint8_t setServo(char ch, int8_t deg) {
+  return setServoIdx(chToIdx(ch), deg);
+}
+
+uint8_t setServoIdx(uint8_t idx, int8_t deg) {
+  current_degrees[idx] = deg;
+  return setServoPulse(ports(idx), deg)
+}
+
 uint8_t setServoPulse(uint8_t n, int degress) {
   degMake(n, 2, 0); //make stX
   degMake(n, 4, 0); //make nstX
   if (stX + degress > 180) {
+    print_c("over 180 degs.");
     return false;
-    print_c("causion, over 180 degs");
   }
   if (stX + degress < 0) {
+    print_c("under 0 degs");
     return false;
-    print_c("causion, under 0 degs");
   }
   double pulse = map(stX + degress, 0, 180, SERVOMIN, SERVOMAX);
   // Serial.println(pulse);
