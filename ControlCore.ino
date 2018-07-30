@@ -61,232 +61,36 @@ bool setLEDg(uint16_t value) {
 }
 
 
-void smoothmotion(uint8_t n, float degress, uint8_t times, uint8_t now) { //times:cutting time  now:now cut
+void smoothmotion(char ch, float degress, uint8_t times, uint8_t now) { //times:cutting time  now:now cut
   float cut = 0;
-  degMake(n, 1, 0); //make formerDeg
-  degMake(n, 4, 0); //make nstX
+  uint8_t idx = chToIdx(ch);
+  degMake(idx, 1, 0); //make formerDeg
+  degMake(idx, 4, 0); //make nstX
   degress = degress * nstX;
   cut = (degress - formerDeg) / (times - now + 1);
-  setServoPulse(n, formerDeg + cut);
-  degMake(n, 3, formerDeg + cut); //update fX
+  setServoIdx(idx, formerDeg + cut);
+  degMake(idx, 3, formerDeg + cut); //update fX
 }
 
-void degMake(uint8_t n, uint8_t mode, float val) {
+void degMake(uint8_t idx, uint8_t mode, float val) {
   /* mode1: make formerDeg
      mode2: make stX
      mode3: update fX
      mode4: make nstX
   */
-  switch (n) {
-    case servoA:
-      if (mode == 1)
-        formerDeg = fA;
-      else if (mode == 2)
-        stX = stA;
-      else if (mode == 3)
-        fA = val;
-      else if (mode == 4)
-        nstX = nstA;
+  switch(mode) {
+    case 1:
+      formerDeg = current_degrees[idx];
       break;
-
-    case servoB:
-      if (mode == 1)
-        formerDeg = fB;
-      else if (mode == 2)
-        stX = stB;
-      else if (mode == 3)
-        fB = val;
-      else if (mode == 4)
-        nstX = nstB;
+    case 2:
+      stX = stand_positions[idx];
       break;
-
-    case servoC:
-      if (mode == 1)
-        formerDeg = fC;
-      else if (mode == 2)
-        stX = stC;
-      else if (mode == 3)
-        fC = val;
-      else if (mode == 4)
-        nstX = nstC;
+    case 3:
+      current_degrees[idx] = val;
       break;
-
-    case servoD:
-      if (mode == 1)
-        formerDeg = fD;
-      else if (mode == 2)
-        stX = stD;
-      else if (mode == 3)
-        fD = val;
-      else if (mode == 4)
-        nstX = nstD;
+    case 4:
+      nstX = calibration[idx];
       break;
-
-    case servoE:
-      if (mode == 1)
-        formerDeg = fE;
-      else if (mode == 2)
-        stX = stE;
-      else if (mode == 3)
-        fE = val;
-      else if (mode == 4)
-        nstX = nstE;
-      break;
-
-    case servoF:
-      if (mode == 1)
-        formerDeg = fF;
-      else if (mode == 2)
-        stX = stF;
-      else if (mode == 3)
-        fF = val;
-      else if (mode == 4)
-        nstX = nstF;
-      break;
-
-    case servoG:
-      if (mode == 1)
-        formerDeg = fG;
-      else if (mode == 2)
-        stX = stG;
-      else if (mode == 3)
-        fG = val;
-      else if (mode == 4)
-        nstX = nstG;
-      break;
-
-    case servoH:
-      if (mode == 1)
-        formerDeg = fH;
-      else if (mode == 2)
-        stX = stH;
-      else if (mode == 3)
-        fH = val;
-      else if (mode == 4)
-        nstX = nstH;
-      break;
-
-    case servoI:
-      if (mode == 1)
-        formerDeg = fI;
-      else if (mode == 2)
-        stX = stI;
-      else if (mode == 3)
-        fI = val;
-      else if (mode == 4)
-        nstX = nstI;
-      break;
-
-    case servoK:
-      if (mode == 1)
-        formerDeg = fK;
-      else if (mode == 2)
-        stX = stK;
-      else if (mode == 3)
-        fK = val;
-      else if (mode == 4)
-        nstX = nstK;
-      break;
-
-    case servoL:
-      if (mode == 1)
-        formerDeg = fL;
-      else if (mode == 2)
-        stX = stL;
-      else if (mode == 3)
-        fL = val;
-      else if (mode == 4)
-        nstX = nstL;
-      break;
-
-    case servoM:
-      if (mode == 1)
-        formerDeg = fM;
-      else if (mode == 2)
-        stX = stM;
-      else if (mode == 3)
-        fM = val;
-      else if (mode == 4)
-        nstX = nstM;
-      break;
-
-    case servoN:
-      if (mode == 1)
-        formerDeg = fN;
-      else if (mode == 2)
-        stX = stN;
-      else if (mode == 3)
-        fN = val;
-      else if (mode == 4)
-        nstX = nstN;
-      break;
-
-    case servoO:
-      if (mode == 1)
-        formerDeg = fO;
-      else if (mode == 2)
-        stX = stO;
-      else if (mode == 3)
-        fO = val;
-      else if (mode == 4)
-        nstX = nstO;
-      break;
-
-    case servoQ:
-      if (mode == 1)
-        formerDeg = fQ;
-      else if (mode == 2)
-        stX = stQ;
-      else if (mode == 3)
-        fQ = val;
-      else if (mode == 4)
-        nstX = nstQ;
-      break;
-
-    case servoR:
-      if (mode == 1)
-        formerDeg = fR;
-      else if (mode == 2)
-        stX = stR;
-      else if (mode == 3)
-        fR = val;
-      else if (mode == 4)
-        nstX = nstR;
-      break;
-
-    case servoS:
-      if (mode == 1)
-        formerDeg = fS;
-      else if (mode == 2)
-        stX = stS;
-      else if (mode == 3)
-        fS = val;
-      else if (mode == 4)
-        nstX = nstS;
-      break;
-
-    case servoT:
-      if (mode == 1)
-        formerDeg = fT;
-      else if (mode == 2)
-        stX = stT;
-      else if (mode == 3)
-        fT = val;
-      else if (mode == 4)
-        nstX = nstT;
-      break;
-
-    case servoU:
-      if (mode == 1)
-        formerDeg = fU;
-      else if (mode == 2)
-        stX = stU;
-      else if (mode == 3)
-        fU = val;
-      else if (mode == 4)
-        nstX = nstU;
-      break;
-
   }
 }
 
