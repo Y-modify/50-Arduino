@@ -163,78 +163,37 @@ void ServoInit() {
 
 /********************Base Functions********************/
 void stand() {
-  setServoPulse(servoA, 0); //首
-
-  setServoPulse(servoB, 0);
-  setServoPulse(servoC, 0);
-  setServoPulse(servoD, 0); //左腕
-
-  setServoPulse(servoE, 0);
-  setServoPulse(servoF, 0);
-  setServoPulse(servoG, 0); //右腕
-
-  setServoPulse(servoH, 0);
-  setServoPulse(servoI, 0); //腰
-
-  setServoPulse(servoK, 0);
-  setServoPulse(servoL, 0); // 170
-  setServoPulse(servoM, 0); // 170
-  setServoPulse(servoN, 0);
-  setServoPulse(servoO, 0); //右足
-
-  setServoPulse(servoQ, 0);
-  setServoPulse(servoR, 0); // 30
-  setServoPulse(servoS, 0); // 30
-  setServoPulse(servoT, 0);
-  setServoPulse(servoU, 0); //左足
-
-  fA = 0;
-  fB = 0;
-  fC = 0;
-  fD = 0;
-  fE = 0;
-  fF = 0;
-  fG = 0;
-  fH = 0;
-  fI = 0;
-  fK = 0;
-  fL = 0;
-  fM = 0;
-  fN = 0;
-  fO = 0;
-  fQ = 0;
-  fR = 0;
-  fS = 0;
-  fT = 0;
-  fU = 0;
+  for(uint8_t i=0; i < SERVONUM; i++) {
+    setServoIdx(i, 0);
+  }
 }
 
 void reset(int times, int frame) {
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, 0 , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', 0 , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, 0 , times, i);
-    smoothmotion(servoM, 0 , times, i);
-    smoothmotion(servoN, 0 , times, i);
-    smoothmotion(servoO, 0 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', 0 , times, i);
+    smoothmotion('M', 0 , times, i);
+    smoothmotion('N', 0 , times, i);
+    smoothmotion('O', 0 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 0 , times, i);
-    smoothmotion(servoS, 0 , times, i);
-    smoothmotion(servoT, 0 , times, i);
-    smoothmotion(servoU, 0 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 0 , times, i);
+    smoothmotion('S', 0 , times, i);
+    smoothmotion('T', 0 , times, i);
+    smoothmotion('U', 0 , times, i); //左脚
     delay(frame);
   }
 }
@@ -242,30 +201,30 @@ void reset(int times, int frame) {
 void bowing() {
   int times = 20;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, 45 , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', 45 , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, 20 , times, i);
-    smoothmotion(servoM, -10 , times, i);
-    smoothmotion(servoN, 0 , times, i);
-    smoothmotion(servoO, 0 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', 20 , times, i);
+    smoothmotion('M', -10 , times, i);
+    smoothmotion('N', 0 , times, i);
+    smoothmotion('O', 0 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, -20 , times, i);
-    smoothmotion(servoS, 10 , times, i);
-    smoothmotion(servoT, 0 , times, i);
-    smoothmotion(servoU, 0 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', -20 , times, i);
+    smoothmotion('S', 10 , times, i);
+    smoothmotion('T', 0 , times, i);
+    smoothmotion('U', 0 , times, i); //左脚
     delay(20);
   }
 }
@@ -273,30 +232,30 @@ void bowing() {
 void crouch() {
   int times = 20;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, 0 , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', 0 , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, -20 , times, i);
-    smoothmotion(servoM, -40 , times, i);
-    smoothmotion(servoN, -20 , times, i);
-    smoothmotion(servoO, 0 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', -20 , times, i);
+    smoothmotion('M', -40 , times, i);
+    smoothmotion('N', -20 , times, i);
+    smoothmotion('O', 0 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 20 , times, i);
-    smoothmotion(servoS, 40 , times, i);
-    smoothmotion(servoT, 20 , times, i);
-    smoothmotion(servoU, 0 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 20 , times, i);
+    smoothmotion('S', 40 , times, i);
+    smoothmotion('T', 20 , times, i);
+    smoothmotion('U', 0 , times, i); //左脚
     delay(20);
   }
 }
@@ -305,30 +264,30 @@ void crouch() {
 void walkLUp(int frame, int hip) {
   int times = 15;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, -10 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', -10 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, 5 , times, i);
-    smoothmotion(servoL, -25 , times, i);
-    smoothmotion(servoM, -60 , times, i);
-    smoothmotion(servoN, -40 , times, i);
-    smoothmotion(servoO, -15 , times, i); //右脚
+    smoothmotion('K', 5 , times, i);
+    smoothmotion('L', -25 , times, i);
+    smoothmotion('M', -60 , times, i);
+    smoothmotion('N', -40 , times, i);
+    smoothmotion('O', -15 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 45 , times, i);
-    smoothmotion(servoS, 60 , times, i);
-    smoothmotion(servoT, 20 , times, i);
-    smoothmotion(servoU, -15 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 45 , times, i);
+    smoothmotion('S', 60 , times, i);
+    smoothmotion('T', 20 , times, i);
+    smoothmotion('U', -15 , times, i); //左脚
     delay(frame);
   }
 }
@@ -336,30 +295,30 @@ void walkLUp(int frame, int hip) {
 void walkRUp(int frame, int hip) {
   int times = 15;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 10 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', 10 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, -45 , times, i);
-    smoothmotion(servoM, -60 , times, i);
-    smoothmotion(servoN, -20 , times, i);
-    smoothmotion(servoO, 15 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', -45 , times, i);
+    smoothmotion('M', -60 , times, i);
+    smoothmotion('N', -20 , times, i);
+    smoothmotion('O', 15 , times, i); //右脚
 
-    smoothmotion(servoQ, -5 , times, i);
-    smoothmotion(servoR, 25 , times, i);
-    smoothmotion(servoS, 60 , times, i);
-    smoothmotion(servoT, 40 , times, i);
-    smoothmotion(servoU, 15 , times, i); //左脚
+    smoothmotion('Q', -5 , times, i);
+    smoothmotion('R', 25 , times, i);
+    smoothmotion('S', 60 , times, i);
+    smoothmotion('T', 40 , times, i);
+    smoothmotion('U', 15 , times, i); //左脚
     delay(frame);
   }
 }
@@ -367,30 +326,30 @@ void walkRUp(int frame, int hip) {
 void walkLFoward(int frame, int hip) {
   int times = 10;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, -10 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', -10 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, -25 , times, i);
-    smoothmotion(servoM, -60 , times, i);
-    smoothmotion(servoN, -40 , times, i);
-    smoothmotion(servoO, 0 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', -25 , times, i);
+    smoothmotion('M', -60 , times, i);
+    smoothmotion('N', -40 , times, i);
+    smoothmotion('O', 0 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 45 , times, i);
-    smoothmotion(servoS, 60 , times, i);
-    smoothmotion(servoT, 20 , times, i);
-    smoothmotion(servoU, 0 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 45 , times, i);
+    smoothmotion('S', 60 , times, i);
+    smoothmotion('T', 20 , times, i);
+    smoothmotion('U', 0 , times, i); //左脚
     delay(frame);
   }
 }
@@ -398,30 +357,30 @@ void walkLFoward(int frame, int hip) {
 void walkRFoward(int frame, int hip) {
   int times = 10;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 10 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', 10 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, -45 , times, i);
-    smoothmotion(servoM, -60 , times, i);
-    smoothmotion(servoN, -20 , times, i);
-    smoothmotion(servoO, 0 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', -45 , times, i);
+    smoothmotion('M', -60 , times, i);
+    smoothmotion('N', -20 , times, i);
+    smoothmotion('O', 0 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 25 , times, i);
-    smoothmotion(servoS, 60 , times, i);
-    smoothmotion(servoT, 40 , times, i);
-    smoothmotion(servoU, 0 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 25 , times, i);
+    smoothmotion('S', 60 , times, i);
+    smoothmotion('T', 40 , times, i);
+    smoothmotion('U', 0 , times, i); //左脚
     delay(frame);
   }
 }
@@ -429,30 +388,30 @@ void walkRFoward(int frame, int hip) {
 void walkLDown(int frame, int hip) {
   int times = 10;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, -5 , times, i);
-    smoothmotion(servoL, -25 , times, i);
-    smoothmotion(servoM, -50 , times, i);
-    smoothmotion(servoN, -30 , times, i);
-    smoothmotion(servoO, 15 , times, i); //右脚
+    smoothmotion('K', -5 , times, i);
+    smoothmotion('L', -25 , times, i);
+    smoothmotion('M', -50 , times, i);
+    smoothmotion('N', -30 , times, i);
+    smoothmotion('O', 15 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 35 , times, i);
-    smoothmotion(servoS, 50 , times, i);
-    smoothmotion(servoT, 20 , times, i);
-    smoothmotion(servoU, 15 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 35 , times, i);
+    smoothmotion('S', 50 , times, i);
+    smoothmotion('T', 20 , times, i);
+    smoothmotion('U', 15 , times, i); //左脚
     delay(frame);
   }
 }
@@ -460,30 +419,30 @@ void walkLDown(int frame, int hip) {
 void walkRDown(int frame, int hip) {
   int times = 10;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, -35 , times, i);
-    smoothmotion(servoM, -50 , times, i);
-    smoothmotion(servoN, -20 , times, i);
-    smoothmotion(servoO, -15 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', -35 , times, i);
+    smoothmotion('M', -50 , times, i);
+    smoothmotion('N', -20 , times, i);
+    smoothmotion('O', -15 , times, i); //右脚
 
-    smoothmotion(servoQ, 5 , times, i);
-    smoothmotion(servoR, 25 , times, i);
-    smoothmotion(servoS, 50 , times, i);
-    smoothmotion(servoT, 30 , times, i);
-    smoothmotion(servoU, -15 , times, i); //左脚
+    smoothmotion('Q', 5 , times, i);
+    smoothmotion('R', 25 , times, i);
+    smoothmotion('S', 50 , times, i);
+    smoothmotion('T', 30 , times, i);
+    smoothmotion('U', -15 , times, i); //左脚
     delay(frame);
   }
 }
@@ -496,30 +455,30 @@ void walkRDown(int frame, int hip) {
 void turnLUp(int frame, int hip) {
   int times = 15;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, 5 , times, i);
-    smoothmotion(servoL, -25 , times, i);
-    smoothmotion(servoM, -60 , times, i);
-    smoothmotion(servoN, -40 , times, i);
-    smoothmotion(servoO, 0 , times, i); //右脚
+    smoothmotion('K', 5 , times, i);
+    smoothmotion('L', -25 , times, i);
+    smoothmotion('M', -60 , times, i);
+    smoothmotion('N', -40 , times, i);
+    smoothmotion('O', 0 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 20 , times, i);
-    smoothmotion(servoS, 40 , times, i);
-    smoothmotion(servoT, 20 , times, i);
-    smoothmotion(servoU, 15 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 20 , times, i);
+    smoothmotion('S', 40 , times, i);
+    smoothmotion('T', 20 , times, i);
+    smoothmotion('U', 15 , times, i); //左脚
     delay(frame);
 
   }
@@ -528,30 +487,30 @@ void turnLUp(int frame, int hip) {
 void turnRUp(int frame, int hip) {
   int times = 15;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, -20 , times, i);
-    smoothmotion(servoM, -40 , times, i);
-    smoothmotion(servoN, -20 , times, i);
-    smoothmotion(servoO, -15 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', -20 , times, i);
+    smoothmotion('M', -40 , times, i);
+    smoothmotion('N', -20 , times, i);
+    smoothmotion('O', -15 , times, i); //右脚
 
-    smoothmotion(servoQ, -5 , times, i);
-    smoothmotion(servoR, 25 , times, i);
-    smoothmotion(servoS, 60 , times, i);
-    smoothmotion(servoT, 40 , times, i);
-    smoothmotion(servoU, 0 , times, i); //左脚
+    smoothmotion('Q', -5 , times, i);
+    smoothmotion('R', 25 , times, i);
+    smoothmotion('S', 60 , times, i);
+    smoothmotion('T', 40 , times, i);
+    smoothmotion('U', 0 , times, i); //左脚
     delay(frame);
   }
 }
@@ -559,30 +518,30 @@ void turnRUp(int frame, int hip) {
 void turnLDown(int frame, int hip) {
   int times = 20;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, -5 , times, i);
-    smoothmotion(servoL, -20 , times, i);
-    smoothmotion(servoM, -40 , times, i);
-    smoothmotion(servoN, -20 , times, i);
-    smoothmotion(servoO, 0 , times, i); //右脚
+    smoothmotion('K', -5 , times, i);
+    smoothmotion('L', -20 , times, i);
+    smoothmotion('M', -40 , times, i);
+    smoothmotion('N', -20 , times, i);
+    smoothmotion('O', 0 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 35 , times, i);
-    smoothmotion(servoS, 50 , times, i);
-    smoothmotion(servoT, 20 , times, i);
-    smoothmotion(servoU, 15 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 35 , times, i);
+    smoothmotion('S', 50 , times, i);
+    smoothmotion('T', 20 , times, i);
+    smoothmotion('U', 15 , times, i); //左脚
     delay(frame);
   }
 }
@@ -590,30 +549,30 @@ void turnLDown(int frame, int hip) {
 void turnRDown(int frame, int hip) {
   int times = 20;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, hip , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', hip , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, -35 , times, i);
-    smoothmotion(servoM, -50 , times, i);
-    smoothmotion(servoN, -20 , times, i);
-    smoothmotion(servoO, -15 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', -35 , times, i);
+    smoothmotion('M', -50 , times, i);
+    smoothmotion('N', -20 , times, i);
+    smoothmotion('O', -15 , times, i); //右脚
 
-    smoothmotion(servoQ, 5 , times, i);
-    smoothmotion(servoR, 20 , times, i);
-    smoothmotion(servoS, 40 , times, i);
-    smoothmotion(servoT, 20 , times, i);
-    smoothmotion(servoU, 0 , times, i); //左脚
+    smoothmotion('Q', 5 , times, i);
+    smoothmotion('R', 20 , times, i);
+    smoothmotion('S', 40 , times, i);
+    smoothmotion('T', 20 , times, i);
+    smoothmotion('U', 0 , times, i); //左脚
     delay(frame);
   }
 }
@@ -626,30 +585,30 @@ void turnRDown(int frame, int hip) {
 void standonOneLegFirst(int frame) {//stand with left leg
   int times = 40;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, 0 , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', 0 , times, i); //腰
 
-    smoothmotion(servoK, -10 , times, i);
-    smoothmotion(servoL, 0 , times, i);
-    smoothmotion(servoM, 0 , times, i);
-    smoothmotion(servoN, 0 , times, i);
-    smoothmotion(servoO, 10 , times, i); //右脚
+    smoothmotion('K', -10 , times, i);
+    smoothmotion('L', 0 , times, i);
+    smoothmotion('M', 0 , times, i);
+    smoothmotion('N', 0 , times, i);
+    smoothmotion('O', 10 , times, i); //右脚
 
-    smoothmotion(servoQ, -10 , times, i);
-    smoothmotion(servoR, 0 , times, i);
-    smoothmotion(servoS, 0 , times, i);
-    smoothmotion(servoT, 0 , times, i);
-    smoothmotion(servoU, 10 , times, i); //左脚
+    smoothmotion('Q', -10 , times, i);
+    smoothmotion('R', 0 , times, i);
+    smoothmotion('S', 0 , times, i);
+    smoothmotion('T', 0 , times, i);
+    smoothmotion('U', 10 , times, i); //左脚
     delay(frame);
   }
 }
@@ -657,30 +616,30 @@ void standonOneLegFirst(int frame) {//stand with left leg
 void standonOneLegSecond(int frame) {//stand with left leg
   int times = 50;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, -5 , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', -5 , times, i); //腰
 
-    smoothmotion(servoK, 0 , times, i);
-    smoothmotion(servoL, -30 , times, i);
-    smoothmotion(servoM, -60 , times, i);
-    smoothmotion(servoN, -30 , times, i);
-    smoothmotion(servoO, 20 , times, i); //右脚
+    smoothmotion('K', 0 , times, i);
+    smoothmotion('L', -30 , times, i);
+    smoothmotion('M', -60 , times, i);
+    smoothmotion('N', -30 , times, i);
+    smoothmotion('O', 20 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 0 , times, i);
-    smoothmotion(servoS, 0 , times, i);
-    smoothmotion(servoT, 0 , times, i);
-    smoothmotion(servoU, 30 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 0 , times, i);
+    smoothmotion('S', 0 , times, i);
+    smoothmotion('T', 0 , times, i);
+    smoothmotion('U', 30 , times, i); //左脚
     delay(frame);
   }
 }
@@ -688,30 +647,30 @@ void standonOneLegSecond(int frame) {//stand with left leg
 void standonOneLegThird(int frame) {//stand with left leg
   int times = 50;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, 0 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', 0 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 0 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 0 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, -5 , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', -5 , times, i); //腰
 
-    smoothmotion(servoK, -70 , times, i);
-    smoothmotion(servoL, -30 , times, i);
-    smoothmotion(servoM, -60 , times, i);
-    smoothmotion(servoN, -30 , times, i);
-    smoothmotion(servoO, 10 , times, i); //右脚
+    smoothmotion('K', -70 , times, i);
+    smoothmotion('L', -30 , times, i);
+    smoothmotion('M', -60 , times, i);
+    smoothmotion('N', -30 , times, i);
+    smoothmotion('O', 10 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 0 , times, i);
-    smoothmotion(servoS, 0 , times, i);
-    smoothmotion(servoT, 0 , times, i);
-    smoothmotion(servoU, 30 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 0 , times, i);
+    smoothmotion('S', 0 , times, i);
+    smoothmotion('T', 0 , times, i);
+    smoothmotion('U', 30 , times, i); //左脚
     delay(frame);
   }
 }
@@ -719,30 +678,30 @@ void standonOneLegThird(int frame) {//stand with left leg
 void standonOneLegFourth(int frame) {//stand with left leg
   int times = 50;
   for (int i = 1; i <= times; i++) {
-    smoothmotion(servoA, 0 , times, i); //首
+    smoothmotion('A', 0 , times, i); //首
 
-    smoothmotion(servoB, 0 , times, i);
-    smoothmotion(servoC, -80 , times, i);
-    smoothmotion(servoD, 0 , times, i); //左腕
+    smoothmotion('B', 0 , times, i);
+    smoothmotion('C', -80 , times, i);
+    smoothmotion('D', 0 , times, i); //左腕
 
-    smoothmotion(servoE, 0 , times, i);
-    smoothmotion(servoF, 80 , times, i);
-    smoothmotion(servoG, 0 , times, i); //右腕
+    smoothmotion('E', 0 , times, i);
+    smoothmotion('F', 80 , times, i);
+    smoothmotion('G', 0 , times, i); //右腕
 
-    smoothmotion(servoH, 0 , times, i);
-    smoothmotion(servoI, -5 , times, i); //腰
+    smoothmotion('H', 0 , times, i);
+    smoothmotion('I', -5 , times, i); //腰
 
-    smoothmotion(servoK, -70 , times, i);
-    smoothmotion(servoL, 0 , times, i);
-    smoothmotion(servoM, 0 , times, i);
-    smoothmotion(servoN, 0 , times, i);
-    smoothmotion(servoO, 0 , times, i); //右脚
+    smoothmotion('K', -70 , times, i);
+    smoothmotion('L', 0 , times, i);
+    smoothmotion('M', 0 , times, i);
+    smoothmotion('N', 0 , times, i);
+    smoothmotion('O', 0 , times, i); //右脚
 
-    smoothmotion(servoQ, 0 , times, i);
-    smoothmotion(servoR, 0 , times, i);
-    smoothmotion(servoS, 0 , times, i);
-    smoothmotion(servoT, 0 , times, i);
-    smoothmotion(servoU, 30 , times, i); //左脚
+    smoothmotion('Q', 0 , times, i);
+    smoothmotion('R', 0 , times, i);
+    smoothmotion('S', 0 , times, i);
+    smoothmotion('T', 0 , times, i);
+    smoothmotion('U', 30 , times, i); //左脚
     delay(frame);
   }
 }
@@ -756,30 +715,30 @@ void standonOneLegFourth(int frame) {//stand with left leg
 /*****************************dogeza*****************************/
 void seiza1() {
   for (int i = 0; i <= 10; i++) {
-    setServoPulse(servoA, stA); //首
+    setServo('A', stA); //首
 
-    setServoPulse(servoB, stB);
-    setServoPulse(servoC, stC);
-    setServoPulse(servoD, stD); //左腕
+    setServo('B', stB);
+    setServo('C', stC);
+    setServo('D', stD); //左腕
 
-    setServoPulse(servoE, stE);
-    setServoPulse(servoF, stF);
-    setServoPulse(servoG, stG); //右腕
+    setServo('E', stE);
+    setServo('F', stF);
+    setServo('G', stG); //右腕
 
-    setServoPulse(servoH, stH);
-    setServoPulse(servoI, stI); //腰
+    setServo('H', stH);
+    setServo('I', stI); //腰
 
-    setServoPulse(servoK, stK);
-    setServoPulse(servoL, stL - i * 3); //-20
-    setServoPulse(servoM, stM + i * 7); //+40
-    setServoPulse(servoN, stN + i * 4); //+20
-    setServoPulse(servoO, stO);         //右足
+    setServo('K', stK);
+    setServo('L', stL - i * 3); //-20
+    setServo('M', stM + i * 7); //+40
+    setServo('N', stN + i * 4); //+20
+    setServo('O', stO);         //右足
 
-    setServoPulse(servoQ, stQ);
-    setServoPulse(servoR, stR + i * 3); //+20
-    setServoPulse(servoS, stS - i * 7); //-40
-    setServoPulse(servoT, stT - i * 4); //-20
-    setServoPulse(servoU, stU);         //左足
+    setServo('Q', stQ);
+    setServo('R', stR + i * 3); //+20
+    setServo('S', stS - i * 7); //-40
+    setServo('T', stT - i * 4); //-20
+    setServo('U', stU);         //左足
 
     delay(40);
   }
@@ -789,30 +748,30 @@ void seiza1() {
 
 void sitdown1() {
   for (int i = 0; i <= 8; i++) {
-    setServoPulse(servoA, stA); //首
+    setServo('A', stA); //首
 
-    setServoPulse(servoB, stB);
-    setServoPulse(servoC, stC);
-    setServoPulse(servoD, stD); //左腕
+    setServo('B', stB);
+    setServo('C', stC);
+    setServo('D', stD); //左腕
 
-    setServoPulse(servoE, stE);
-    setServoPulse(servoF, stF);
-    setServoPulse(servoG, stG); //右腕
+    setServo('E', stE);
+    setServo('F', stF);
+    setServo('G', stG); //右腕
 
-    setServoPulse(servoH, stH);
-    setServoPulse(servoI, stI - i * 4.5); //腰 -50
+    setServo('H', stH);
+    setServo('I', stI - i * 4.5); //腰 -50
 
-    setServoPulse(servoK, stK);
-    setServoPulse(servoL, stL + i * 2); //+20
-    setServoPulse(servoM, stM);
-    setServoPulse(servoN, stN);
-    setServoPulse(servoO, stO); //右足
+    setServo('K', stK);
+    setServo('L', stL + i * 2); //+20
+    setServo('M', stM);
+    setServo('N', stN);
+    setServo('O', stO); //右足
 
-    setServoPulse(servoQ, stQ);
-    setServoPulse(servoR, stR - i * 2); //-20
-    setServoPulse(servoS, stS);
-    setServoPulse(servoT, stT);
-    setServoPulse(servoU, stU); //左足
+    setServo('Q', stQ);
+    setServo('R', stR - i * 2); //-20
+    setServo('S', stS);
+    setServo('T', stT);
+    setServo('U', stU); //左足
 
     delay(50);
   }
@@ -820,30 +779,30 @@ void sitdown1() {
 
 void sitdown2() {
   for (int i = 0; i <= 16; i++) {
-    setServoPulse(servoA, stA); //首
+    setServo('A', stA); //首
 
-    setServoPulse(servoB, stB);
-    setServoPulse(servoC, stC);
-    setServoPulse(servoD, stD); //左腕
+    setServo('B', stB);
+    setServo('C', stC);
+    setServo('D', stD); //左腕
 
-    setServoPulse(servoE, stE);
-    setServoPulse(servoF, stF);
-    setServoPulse(servoG, stG); //右腕
+    setServo('E', stE);
+    setServo('F', stF);
+    setServo('G', stG); //右腕
 
-    setServoPulse(servoH, stH);
-    setServoPulse(servoI, stI - 36 - i * 2.25); //腰 -50
+    setServo('H', stH);
+    setServo('I', stI - 36 - i * 2.25); //腰 -50
 
-    setServoPulse(servoK, stK);
-    setServoPulse(servoL, stL + 16 + i * 0.5); //+20
-    setServoPulse(servoM, stM + i);
-    setServoPulse(servoN, stN - i * 1.5);
-    setServoPulse(servoO, stO); //右足
+    setServo('K', stK);
+    setServo('L', stL + 16 + i * 0.5); //+20
+    setServo('M', stM + i);
+    setServo('N', stN - i * 1.5);
+    setServo('O', stO); //右足
 
-    setServoPulse(servoQ, stQ);
-    setServoPulse(servoR, stR - 16 - i * 0.5); //-20
-    setServoPulse(servoS, stS - i);
-    setServoPulse(servoT, stT + i * 1.5);
-    setServoPulse(servoU, stU); //左足
+    setServo('Q', stQ);
+    setServo('R', stR - 16 - i * 0.5); //-20
+    setServo('S', stS - i);
+    setServo('T', stT + i * 1.5);
+    setServo('U', stU); //左足
 
     delay(50);
   }
@@ -851,30 +810,30 @@ void sitdown2() {
 
 void situp1() {
   for (int i = 0; i <= 8; i++) {
-    setServoPulse(servoA, stA); //首
+    setServo('A', stA); //首
 
-    setServoPulse(servoB, stB);
-    setServoPulse(servoC, stC);
-    setServoPulse(servoD, stD); //左腕
+    setServo('B', stB);
+    setServo('C', stC);
+    setServo('D', stD); //左腕
 
-    setServoPulse(servoE, stE);
-    setServoPulse(servoF, stF);
-    setServoPulse(servoG, stG); //右腕
+    setServo('E', stE);
+    setServo('F', stF);
+    setServo('G', stG); //右腕
 
-    setServoPulse(servoH, stH);
-    setServoPulse(servoI, stI - 72); //腰 -50
+    setServo('H', stH);
+    setServo('I', stI - 72); //腰 -50
 
-    setServoPulse(servoK, stK);
-    setServoPulse(servoL, stL + 24 - i * 6); //+20
-    setServoPulse(servoM, stM + 16 - i);
-    setServoPulse(servoN, stN - 24);
-    setServoPulse(servoO, stO); //右足
+    setServo('K', stK);
+    setServo('L', stL + 24 - i * 6); //+20
+    setServo('M', stM + 16 - i);
+    setServo('N', stN - 24);
+    setServo('O', stO); //右足
 
-    setServoPulse(servoQ, stQ);
-    setServoPulse(servoR, stR - 24 + i * 6); //-20
-    setServoPulse(servoS, stS - 16 + i);
-    setServoPulse(servoT, stT + 24);
-    setServoPulse(servoU, stU); //左足
+    setServo('Q', stQ);
+    setServo('R', stR - 24 + i * 6); //-20
+    setServo('S', stS - 16 + i);
+    setServo('T', stT + 24);
+    setServo('U', stU); //左足
 
     delay(60);
   }
@@ -882,30 +841,30 @@ void situp1() {
 
 void situp2() {
   for (int i = 0; i <= 16; i++) {
-    setServoPulse(servoA, stA); //首
+    setServo('A', stA); //首
 
-    setServoPulse(servoB, stB);
-    setServoPulse(servoC, stC);
-    setServoPulse(servoD, stD); //左腕
+    setServo('B', stB);
+    setServo('C', stC);
+    setServo('D', stD); //左腕
 
-    setServoPulse(servoE, stE);
-    setServoPulse(servoF, stF);
-    setServoPulse(servoG, stG); //右腕
+    setServo('E', stE);
+    setServo('F', stF);
+    setServo('G', stG); //右腕
 
-    setServoPulse(servoH, stH);
-    setServoPulse(servoI, stI - 72 + i * 4.5); //腰 -50
+    setServo('H', stH);
+    setServo('I', stI - 72 + i * 4.5); //腰 -50
 
-    setServoPulse(servoK, stK);
-    setServoPulse(servoL, stL - 24 + i * 1.5); //+20
-    setServoPulse(servoM, stM + 8 - i * 0.5);
-    setServoPulse(servoN, stN - 24 + i * 1.5);
-    setServoPulse(servoO, stO); //右足
+    setServo('K', stK);
+    setServo('L', stL - 24 + i * 1.5); //+20
+    setServo('M', stM + 8 - i * 0.5);
+    setServo('N', stN - 24 + i * 1.5);
+    setServo('O', stO); //右足
 
-    setServoPulse(servoQ, stQ);
-    setServoPulse(servoR, stR + 24 - i * 1.5); //-20
-    setServoPulse(servoS, stS - 8 + i * 0.5);
-    setServoPulse(servoT, stT + 24 - i * 1.5);
-    setServoPulse(servoU, stU); //左足
+    setServo('Q', stQ);
+    setServo('R', stR + 24 - i * 1.5); //-20
+    setServo('S', stS - 8 + i * 0.5);
+    setServo('T', stT + 24 - i * 1.5);
+    setServo('U', stU); //左足
 
     delay(50);
   }
